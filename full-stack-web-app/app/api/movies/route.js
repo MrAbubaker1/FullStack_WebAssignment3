@@ -1,9 +1,9 @@
 import client from "../../libs/prismadb";
 import { NextResponse } from "next/server";
 
-// url: http://localhost:3001/api/movies
+// url: http://localhost:3000/api/movies
 
-export const Movie = async (req) => {
+export const POST = async (req) => {
   try {
     const body = await req.json();
     const { title, actors, releaseYear } = body;
@@ -17,7 +17,7 @@ export const Movie = async (req) => {
     return NextResponse.json(newMovie);
   } catch (error) {
     return NextResponse.json(
-      { message: "Error creating movie", error },
+      { message: "Error creating movie entry", error },
       { status: 500 }
     );
   }

@@ -15,9 +15,9 @@ datasource db {
 
 model Movie {
   id String   @id @default(auto()) @map("_id") @db.ObjectId
-  title     String
+  title     String?
   actors   String[]
-  releaseYear Int
+  releaseYear Int?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

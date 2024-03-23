@@ -17,7 +17,7 @@ const AddMovie = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.movie("/api/movies", input).then((res)=>{
+    axios.post("/api/movies", input).then((res)=>{
         console.log(res)
     }).catch((err)=>{
         console.log(err)
