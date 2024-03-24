@@ -12,8 +12,16 @@ const AddMovie = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setInput((prevState) => ({ ...prevState, [name]: value }))
-  }
+    if (name === 'actors') {
+        const actorsArray = value.split(',').map(actor => actor.trim());
+        setInput(prevState => ({ ...prevState, [name]: actorsArray }));
+    } else if (name === 'releaseYear') {
+        setInput(prevState => ({ ...prevState, [name]: parseInt(value) || '' }));
+    } else {
+        setInput(prevState => ({ ...prevState, [name]: value }));
+    }
+};
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,6 +35,7 @@ const AddMovie = () => {
     Router.refresh();
 })
   }
+  
   return (
     <div>
       <button

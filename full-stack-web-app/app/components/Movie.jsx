@@ -18,8 +18,6 @@ const Movie = ({ movie, onDelete }) => {
         }));
     };
     
-    
-
     const handleEditSubmit = (e) => {
         e.preventDefault();
         axios.patch(`/api/movies/${movie.id}`, movieToEdit)
