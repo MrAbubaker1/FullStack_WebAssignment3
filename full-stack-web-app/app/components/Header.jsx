@@ -7,7 +7,7 @@ const Header = () => {
     console.log(pathname);
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
+    { label: "About", href: "/moviepage" },
   ];
   return (
     <div>
