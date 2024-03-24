@@ -30,7 +30,7 @@ const MoviePage = () => {
   }
 
   return (
-    <Layout> {/* Wrap your MoviePage component with the Layout component */}
+    <Layout> 
       <main className="flex min-h-screen flex-col justify-between p-24">
         <AddMovie />
         {movies ? <MovieList movie={movies} /> : <p>No movies found</p>}
