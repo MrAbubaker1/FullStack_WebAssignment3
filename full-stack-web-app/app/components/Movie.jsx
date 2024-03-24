@@ -1,8 +1,8 @@
-"use client"
-import React, { useState } from "react";
+'use client'
 import axios from "axios";
 import Modal from "./Modal";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 const Movie = ({ movie, onDelete }) => {
     const Router = useRouter();
@@ -12,8 +12,13 @@ const Movie = ({ movie, onDelete }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setPostToEdit((prevState) => ({ ...prevState, [name]: value }));
+        setMovieToEdit((prevState) => ({
+            ...prevState,
+            [name]: name === 'actors' ? value.split(',') : name === 'releaseYear' ? parseInt(value) : value
+        }));
     };
+    
+    
 
     const handleEditSubmit = (e) => {
         e.preventDefault();
@@ -45,10 +50,13 @@ const Movie = ({ movie, onDelete }) => {
             });
     };
 
+    // Format actors array as comma-separated string
+    const formattedActors = movie.actors.join(', ');
+
     return (
         <li className="p-3 my-5 bg-slate-300" key={movie.id}>
             <h1>{movie.title}</h1>
-            <p>{movie.actors}</p>
+            <p>{formattedActors}</p> {/* Display formatted actors */}
             <p>{movie.releaseYear}</p>
             <div>
                 <button onClick={() => setShowModal(true)} className="bg-green-500 text-white mr-2" style={{ width: '80px' }}>Edit</button>
@@ -66,7 +74,7 @@ const Movie = ({ movie, onDelete }) => {
                         onChange={handleChange}
                     />
                     <input
-                        type="textarea"
+                        type="text"
                         placeholder="actors"
                         name="actors"
                         className="w-full p-2 mb-3"
