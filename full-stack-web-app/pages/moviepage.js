@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Layout from '../app/layout'; // Import your Layout component
+import Layout from '../app/layout'; 
 import AddMovie from "../app/components/AddMovie";
 import MovieList from "../app/components/MovieList";
 

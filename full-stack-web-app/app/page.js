@@ -2,8 +2,13 @@ import React from 'react';
 
 const HomePage = () => {
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
-      <div className="max-w-3xl mx-auto px-6">
+    <div
+      className="min-h-screen flex flex-col justify-center items-center"
+      style={{
+        backgroundImage: 'linear-gradient(to bottom, #f7fafc, #edf2f7)',
+      }}
+    >
+      <div className="max-w-3xl mx-auto px-6 py-8 rounded-md">
         <h1 className="text-4xl font-bold text-center mb-8">Welcome to IMR</h1>
         <p className="text-xl text-center mb-8">Your destination for renting movies online</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
