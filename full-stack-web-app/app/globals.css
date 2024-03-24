@@ -17,7 +17,9 @@
 }
 
 body {
-
+  background: linear-gradient(to bottom, #93bcd2, #30434d,  #93bcd2);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
 }
 
 @layer utilities {

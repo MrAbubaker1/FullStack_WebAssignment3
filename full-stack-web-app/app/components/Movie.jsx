@@ -52,17 +52,17 @@ const Movie = ({ movie, onDelete }) => {
     const formattedActors = movie.actors.join(', ');
 
     return (
-        <li className="p-3 my-5 bg-slate-300" key={movie.id}>
+        <li className="p-3 my-5 bg-slate-400" key={movie.id}>
             <h1>{movie.title}</h1>
             <p>{formattedActors}</p> {/* Display formatted actors */}
             <p>{movie.releaseYear}</p>
             <div>
-                <button onClick={() => setShowModal(true)} className="bg-green-500 text-white mr-2" style={{ width: '80px' }}>Edit</button>
-                <button onClick={() => handleDeleteMovie(movie.id)} className="bg-red-500 text-white" style={{ width: '80px' }}>Delete</button>
+                <button onClick={() => setShowModal(true)} className="bg-green-600 text-white mr-2" style={{ width: '80px' }}>Edit</button>
+                <button onClick={() => handleDeleteMovie(movie.id)} className="bg-red-600 text-white" style={{ width: '80px' }}>Delete</button>
             </div>
             <Modal showModal={showModal} setShowModal={setShowModal}>
                 <form className="w-full px-5 pb-6" onSubmit={handleEditSubmit}>
-                    <h1>Edit Movie</h1>
+                    <h1 className="mb-2 text-2xl">Edit Movie</h1>
                     <input
                         type="text"
                         placeholder="title"

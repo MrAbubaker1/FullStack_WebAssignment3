@@ -18,7 +18,7 @@ const Header = () => {
             <Link
               href={link.href}
               className={
-                pathname === `${link.href}` ? "text-blue-500 font-bold" : ""
+                pathname === `${link.href}` ? "text-blue-800 font-bold" : ""
               }
             >
               {link.label}

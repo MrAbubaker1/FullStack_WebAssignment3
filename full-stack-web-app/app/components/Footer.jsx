@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
 
 const Footer = () => {
   return (
-    <p className='py-10 text-center'>All rights Reserved</p>
-  )
-}
+    <footer className="py-10 text-center">
+      <div className='text'>
+      <p>All rights Reserved</p>
+      <p>The Internet Movies Rental Company (IMR) is a leading provider of online movie rental services. With a vast library of movies spanning various genres, IMR aims to provide the best entertainment experience to its customers.</p>
+      <p>Contact us: contact@imr.com | Phone: 1-800-123-4567</p>
+      </div>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;
