@@ -38,6 +38,7 @@ const AddMovie = () => {
   
   return (
     <div>
+      <h1 className="text-3xl mb-10 font-bold text-center text-gray-800 font-sans mt-10">IMR Movie Portal</h1>
       <button
         onClick={() => setShowModal(true)}
         className="bg-blue-800 text-white p-3 cursor-pointer"

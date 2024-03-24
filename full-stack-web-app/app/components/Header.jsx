@@ -7,7 +7,7 @@ const Header = () => {
     console.log(pathname);
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "Movies", href: "/movies" }
+    { label: "About", href: "/about" },
   ];
   return (
     <div>
@@ -18,7 +18,7 @@ const Header = () => {
             <Link
               href={link.href}
               className={
-                pathname === `${link.href}` ? "text-blue-800 font-bold" : ""
+                pathname === `${link.href}` ? "text-gray-200 font-bold" : ""
               }
             >
               {link.label}
