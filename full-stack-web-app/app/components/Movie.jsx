@@ -1,4 +1,3 @@
-'use client'
 import axios from "axios";
 import Modal from "./Modal";
 import { useRouter } from "next/navigation";
@@ -48,17 +47,16 @@ const Movie = ({ movie, onDelete }) => {
             });
     };
 
-    // Format actors array as comma-separated string
     const formattedActors = movie.actors.join(', ');
 
     return (
         <li className="p-3 my-5 bg-slate-400" key={movie.id}>
             <h1>{movie.title}</h1>
-            <p>{formattedActors}</p> {/* Display formatted actors */}
+            <p>{formattedActors}</p>
             <p>{movie.releaseYear}</p>
             <div>
                 <button onClick={() => setShowModal(true)} className="bg-green-600 text-white mr-2" style={{ width: '80px' }}>Edit</button>
-                <button onClick={() => handleDeleteMovie(movie.id)} className="bg-red-600 text-white" style={{ width: '80px' }}>Delete</button>
+                <button onClick={() => setShowDeleteModal(true)} className="bg-red-600 text-white" style={{ width: '80px' }}>Delete</button>
             </div>
             <Modal showModal={showModal} setShowModal={setShowModal}>
                 <form className="w-full px-5 pb-6" onSubmit={handleEditSubmit}>
@@ -92,11 +90,11 @@ const Movie = ({ movie, onDelete }) => {
                 </form>
             </Modal>
             {showDeleteModal && (
-                <Modal>
+                <Modal showModal={showDeleteModal} setShowModal={setShowDeleteModal}>
                     <div>
                         <p>Are you sure you want to delete this movie?</p>
-                        <button onClick={() => handleDeleteMovie(movie.id)} className="bg-red-500 text-white mr-2">Yes</button>
-                        <button onClick={() => setShowDeleteModal(false)} className="bg-blue-500 text-white">No</button>
+                        <button onClick={() => handleDeleteMovie(movie.id)} className=" bg-red-700 text-white mr-2 font-bold">Yes</button>
+                        <button onClick={() => setShowDeleteModal(false)} className=" bg-blue-800 text-white font-bold">No</button>
                     </div>
                 </Modal>
             )}
