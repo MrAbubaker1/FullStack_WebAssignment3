@@ -14,7 +14,15 @@ export const POST = async (req) => {
         releaseYear,
       },
     });
-    return NextResponse.json(newMovie);
+
+    return NextResponse.json(newMovie, {
+      headers: {
+        "Access-Control-Allow-Origin": "https://full-stack-web-assignment3-v1cn.vercel.app/moviepage",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Max-Age": "86400",
+      },
+    });
   } catch (error) {
     return NextResponse.json(
       { message: "Error creating movie entry", error },
@@ -22,15 +30,3 @@ export const POST = async (req) => {
     );
   }
 };
-
-export const GET = async () => {
-  try {
-    const movies = await client.movie.findMany();
-    return NextResponse.json(movies);
-  } catch (error) {
-    return NextResponse.json(
-      { status: 500 },
-      { message: "Error getting movies", error }
-    );
-  }
-}
