@@ -31,11 +31,13 @@ const MoviePage = () => {
 
   return (
     <Layout> 
-      <main className="flex min-h-screen max-h-screen flex-col justify-between p-24 mt-auto">
-        <div className="mt-auto">
+      <main className="flex min-h-screen flex-col justify-between p-24">
+        <div>
           <AddMovie />
         </div>
-        {movies ? <MovieList movie={movies} /> : <p>No movies found</p>}
+        <div className="overflow-y-auto max-h-[400px]">
+          {movies ? <MovieList movie={movies} /> : <p>No movies found</p>}
+        </div>
       </main>
     </Layout>
   );
