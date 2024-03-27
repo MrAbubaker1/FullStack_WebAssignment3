@@ -2,6 +2,7 @@
   "name": "full-stack-web-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://full-stack-web-assignment3-v1cn-4wv1mwin9.vercel.app/", 
   "scripts": {
     "dev": "next dev",
     "build": "yarn prisma generate && rm -rf .vercel && next build",
