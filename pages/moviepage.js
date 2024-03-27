@@ -10,7 +10,7 @@ const MoviePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('http://localhost:3000/api/movies', { cache: "no-cache" });
+        const res = await fetch('https://full-stack-web-assignment3-yse9.vercel.app/moviepage', { cache: "no-cache" });
         if (!res.ok) {
           throw new Error("Failed to fetch data");
         }
