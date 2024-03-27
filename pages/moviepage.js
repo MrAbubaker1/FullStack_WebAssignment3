@@ -10,11 +10,16 @@ const MoviePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const timestamp = new Date().getTime(); 
-        const url = `https://full-stack-web-assignment3-yse9.vercel.app/moviepage?timestamp=${timestamp}`;
-        const res = await fetch(url, { cache: "no-cache" });
+        const url = 'https://full-stack-web-assignment3-yse9.vercel.app/moviepage';
+        const res = await fetch(url, {
+          cache: 'no-cache',
+          headers: {
+            'Cache-Control': 'no-cache',
+            'Pragma': 'no-cache',
+          },
+        });
         if (!res.ok) {
-          throw new Error("Failed to fetch data");
+          throw new Error('Failed to fetch data');
         }
         const data = await res.json();
         setMovies(data);
@@ -22,7 +27,6 @@ const MoviePage = () => {
         setError(error);
       }
     };
-    
 
     fetchData();
   }, []);
