@@ -12,7 +12,9 @@ const RootLayout = ({ children }) => {
       <div className={inter.className}>
         {children}
       </div>
-      <Footer />
+      <div className="mt-10">
+      <Footer/>
+      </div>
     </>
   );
 };
