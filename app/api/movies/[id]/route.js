@@ -39,7 +39,7 @@ export const PATCH = async (request, { params }) => {
         if (!updateMovie) {
             return NextResponse.json({ status: 404 }, { message: "Movie not found" })
         }
-        return NextResponse.json(updateMovie, { headers: { "Access-Control-Allow-Origin": "https://your-movies-page-domain.com" } });
+        return NextResponse.json(updateMovie, { headers: { "Access-Control-Allow-Origin": "https://full-stack-web-assignment3-v1cn.vercel.app/moviepage" } });
 
     } catch (error) {
         return NextResponse.json({ status: 500 }, { message: "Error updating movie", error })
