@@ -12,7 +12,10 @@ const MoviePage = () => {
       try {
         const url = 'https://full-stack-web-assignment3-yse9.vercel.app/moviepage';
         const res = await fetch(url, {
-          cache: 'no-cache', 
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          }
         });
         if (!res.ok) {
           throw new Error('Failed to fetch data');
