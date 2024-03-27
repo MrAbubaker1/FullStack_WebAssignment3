@@ -1,7 +1,9 @@
 import React from 'react';
+import Layout from '../app/layout'; 
 
 const HomePage = () => {
   return (
+    <Layout>
     <div className="min-h-screen flex flex-col justify-center items-center bg-gray-300" >
       <div className="max-w-3xl mx-auto px-6 py-8 rounded-md ">
         <h1 className="text-4xl font-bold text-center mb-8">Welcome to IMRs Movie Portal</h1>
@@ -16,6 +18,7 @@ const HomePage = () => {
         </div>
       </div>
     </div>
+    </Layout>
   );
 };
 
