@@ -7,13 +7,15 @@ const inter = Inter({ subsets: ["latin"] });
 
 const RootLayout = ({ children }) => {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <div className={inter.className}>
-        {children}
+      <div className={`flex-grow ${inter.className}`}>
+        <div className="overflow-y-auto max-h-[calc(100vh-96px)]"> 
+          {children}
+        </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
