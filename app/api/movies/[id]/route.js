@@ -5,17 +5,14 @@ export const GET = async (request, { params }) => {
     try {
         const { id } = params;
         const movie = await client.movie.findUnique({
-            where: {
-                id
-            }
+            where: { id }
         });
         if (!movie) {
-            return NextResponse.json({ status: 404 }, { message: "Movie not found" });
+            return NextResponse.json({ status: 404, message: "Movie not found" });
         }
-        
-        return NextResponse.json(movie, { headers: { "Access-Control-Allow-Origin": "https://full-stack-web-assignment3-yse9.vercel.app/moviepage" } });
+        return NextResponse.json(movie);
     } catch (error) {
-        return NextResponse.json({ status: 500 }, { message: "Error getting movie", error });
+        return NextResponse.json({ status: 500, message: "Error getting movie", error });
     }
 };
 
@@ -25,37 +22,27 @@ export const PATCH = async (request, { params }) => {
         const { id } = params;
         const { title, actors, releaseYear } = body;
 
-        const updateMovie = await client.movie.update({
-            where: {
-                id
-            },
-            data: {
-                title,
-                actors,
-                releaseYear
-            }
+        const updatedMovie = await client.movie.update({
+            where: { id },
+            data: { title, actors, releaseYear }
         });
-        if (!updateMovie) {
-            return NextResponse.json({ status: 404 }, { message: "Movie not found" });
-        }
-        return NextResponse.json(updateMovie, { headers: { "Access-Control-Allow-Origin": "https://full-stack-web-assignment3-yse9.vercel.app/moviepage" } });
 
+        if (!updatedMovie) {
+            return NextResponse.json({ status: 404, message: "Movie not found" });
+        }
+
+        return NextResponse.json(updatedMovie);
     } catch (error) {
-        return NextResponse.json({ status: 500 }, { message: "Error updating movie", error });
+        return NextResponse.json({ status: 500, message: "Error updating movie", error });
     }
 };
 
 export const DELETE = async (request, { params }) => {
     try {
         const { id } = params;
-        await client.movie.delete({
-            where: {
-                id
-            }
-        });
-        return NextResponse.json({ status: 200 }, { message: "Movie deleted" });
-
+        await client.movie.delete({ where: { id } });
+        return NextResponse.json({ status: 200, message: "Movie deleted" });
     } catch (error) {
-        return NextResponse.json({ status: 500 }, { message: "Error deleting movie", error });
+        return NextResponse.json({ status: 500, message: "Error deleting movie", error });
     }
 };
