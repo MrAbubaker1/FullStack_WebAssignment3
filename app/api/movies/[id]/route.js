@@ -1,6 +1,11 @@
 import client from "@/app/libs/prismadb";
 import { NextResponse } from "next/server";
 
+
+const commonHeaders = {
+  "Cache-Control": "no-cache, no-store, max-age=0, must-revalidate",
+};
+
 export const GET = async (request, { params }) => {
     try {
         const { id } = params;
@@ -8,11 +13,11 @@ export const GET = async (request, { params }) => {
             where: { id }
         });
         if (!movie) {
-            return NextResponse.json({ status: 404, message: "Movie not found" });
+            return NextResponse.json({ status: 404, message: "Movie not found" }, { headers: commonHeaders });
         }
-        return NextResponse.json(movie);
+        return NextResponse.json(movie, { headers: commonHeaders });
     } catch (error) {
-        return NextResponse.json({ status: 500, message: "Error getting movie", error });
+        return NextResponse.json({ status: 500, message: "Error getting movie", error }, { headers: commonHeaders });
     }
 };
 
@@ -28,12 +33,12 @@ export const PATCH = async (request, { params }) => {
         });
 
         if (!updatedMovie) {
-            return NextResponse.json({ status: 404, message: "Movie not found" });
+            return NextResponse.json({ status: 404, message: "Movie not found" }, { headers: commonHeaders });
         }
 
-        return NextResponse.json(updatedMovie);
+        return NextResponse.json(updatedMovie, { headers: commonHeaders });
     } catch (error) {
-        return NextResponse.json({ status: 500, message: "Error updating movie", error });
+        return NextResponse.json({ status: 500, message: "Error updating movie", error }, { headers: commonHeaders });
     }
 };
 
@@ -41,8 +46,8 @@ export const DELETE = async (request, { params }) => {
     try {
         const { id } = params;
         await client.movie.delete({ where: { id } });
-        return NextResponse.json({ status: 200, message: "Movie deleted" });
+        return NextResponse.json({ status: 200, message: "Movie deleted" }, { headers: commonHeaders });
     } catch (error) {
-        return NextResponse.json({ status: 500, message: "Error deleting movie", error });
+        return NextResponse.json({ status: 500, message: "Error deleting movie", error }, { headers: commonHeaders });
     }
 };
