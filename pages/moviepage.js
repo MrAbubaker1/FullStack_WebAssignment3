@@ -5,7 +5,7 @@ const MoviePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = `https://${process.env.DATABASE_URL}/moviepage`;
+        const url = `https://${process.env.VERCEL_URL}/moviepage`;
         const res = await fetch(url, {
           method: 'GET',
           headers: {
