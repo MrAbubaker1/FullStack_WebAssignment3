@@ -1,3 +1,8 @@
+import { useState, useEffect } from 'react';
+import Layout from '../app/layout';
+import AddMovie from '../components/AddMovie';
+import MovieList from '../components/MovieList';
+
 const MoviePage = () => {
   const [movies, setMovies] = useState(null);
   const [error, setError] = useState(null);
