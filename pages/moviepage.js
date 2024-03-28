@@ -1,8 +1,3 @@
-import React, { useEffect, useState } from 'react';
-import Layout from '../app/layout'; 
-import AddMovie from "../app/components/AddMovie";
-import MovieList from "../app/components/MovieList";
-
 const MoviePage = () => {
   const [movies, setMovies] = useState(null);
   const [error, setError] = useState(null);
@@ -10,7 +5,7 @@ const MoviePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = 'https://full-stack-web-assignment3-yse9.vercel.app/moviepage';
+        const url = `https://${process.env.VERCEL_URL}/moviepage`;
         const res = await fetch(url, {
           method: 'GET',
           headers: {
