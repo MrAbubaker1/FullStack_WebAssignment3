@@ -1,1 +1,3 @@
-# Web_Assignment2
+# Web_Assignment3 Project: IMR Movie Rental App By: Amadou Diallo, Abdurahman Hassan, FALMATA OBSA, Zain Naeem, Adam Abubaker, March 27, 2024
+
+# Project Description: Our task was to create a simple yet effective web application for the Internet Movies Rental Company (IMR). With this app, users can easily manage the movie database by adding, editing, and deleting movie entries. Built with Next.js, MongoDB, and Prisma, our app provides a smooth user experience. Users can browse through a list of movies, view details such as title, actors, and release year, and perform CRUD operations effortlessly. We setup our own movies api route to handle get, post, delete, and patch request to our database. The app also features a custom  header / navbar for easy navigation and a footer for company information and was deployed using vercel. 
