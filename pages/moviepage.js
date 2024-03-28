@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Layout from '../app/layout';
-import AddMovie from '../components/AddMovie';
-import MovieList from '../components/MovieList';
+import AddMovie from "../app/components/AddMovie";
+import MovieList from "../app/components/MovieList";
 
 const MoviePage = () => {
   const [movies, setMovies] = useState(null);
