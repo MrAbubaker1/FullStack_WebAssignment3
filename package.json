@@ -5,7 +5,7 @@
   "homepage": "https://full-stack-web-assignment3-v1cn-4wv1mwin9.vercel.app/", 
   "scripts": {
     "dev": "next dev",
-    "build": "yarn prisma generate && rm -rf .vercel && next build",
+    "build": "yarn prisma generate && next build && prisma db push",
     "start": "next start",
     "lint": "next lint"
   },
